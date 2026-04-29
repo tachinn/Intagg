@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="media/favicons/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intagg — Disclaimer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .disclaimer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0 40px 160px;
+    }
+    .disclaimer-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    .disclaimer-text {
+      font-size: 18px;
+      color: var(--mid);
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .disclaimer-btn {
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      padding: 16px 32px;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .disclaimer-btn:hover {
+      background: var(--off-white);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="app-nav">
+    <a href="index.html" class="app-nav-logo" style="text-decoration: none; color: inherit;">intagg</a>
+
+    <div class="nav-links">
+      <a href="internships.html" class="nav-link">Internships</a>
+      <a href="fellowships.html" class="nav-link">Fellowships</a>
+      <a href="hackathons.html" class="nav-link">Hackathons</a>
+      <a href="contests.html" class="nav-link">Contests</a>
+      <a href="disclaimer.html" class="nav-link active">Disclaimer</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+    </div>
+
+          <div class="app-nav-right" id="authSection" style="display:flex; align-items:center;">
+        <a href="login.html" style="color:var(--white); text-decoration:none; font-weight:600; font-size:14px; margin-right:16px;">Log in</a>
+        <a href="signup.html" style="background:var(--white); color:var(--black); padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:700; font-size:14px;">Sign up</a>
+      </div>
+  </nav>
+
+  <div class="disclaimer-container">
+    <div class="disclaimer-title">Disclaimer</div>
+    <div class="disclaimer-text">
+      This platform is solely a research project. We do not intend to earn, nor are we earning, any money from this service. If you have any complaints, please send us feedback and we will act instantly.
+    </div>
+    
+    <a href="feedback.html" class="disclaimer-btn">Go to Feedback</a>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+
+</html>

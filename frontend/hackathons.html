@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="media/favicons/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intagg — Hackathons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .coming-soon-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+      text-align: center;
+      padding: 40px;
+    }
+
+    .coming-soon-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .coming-soon-text {
+      font-size: 16px;
+      color: var(--mid);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="app-nav">
+    <a href="index.html" class="app-nav-logo" style="text-decoration: none; color: inherit;">intagg</a>
+
+    <div class="nav-links">
+      <a href="internships.html" class="nav-link">Internships</a>
+      <a href="fellowships.html" class="nav-link">Fellowships</a>
+      <a href="hackathons.html" class="nav-link active">Hackathons</a>
+      <a href="contests.html" class="nav-link">Contests</a>
+      <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+        <a href="feedback.html" class="nav-link">Feedback</a>
+    </div>
+
+          <div class="app-nav-right" id="authSection" style="display:flex; align-items:center;">
+        <a href="login.html" style="color:var(--white); text-decoration:none; font-weight:600; font-size:14px; margin-right:16px;">Log in</a>
+        <a href="signup.html" style="background:var(--white); color:var(--black); padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:700; font-size:14px;">Sign up</a>
+      </div>
+  </nav>
+
+  <div class="coming-soon-container">
+    <div class="coming-soon-title">Hackathons</div>
+    <div class="coming-soon-text">maybe coming soon!</div>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+
+</html>

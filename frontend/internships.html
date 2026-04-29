@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="media/favicons/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intagg — Internships</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="internships">
+
+    <nav class="app-nav">
+      <a href="index.html" class="app-nav-logo" style="text-decoration: none; color: inherit;">intagg</a>
+
+      <div class="nav-links">
+        <a href="internships.html" class="nav-link active">Internships</a>
+        <a href="fellowships.html" class="nav-link">Fellowships</a>
+        <a href="hackathons.html" class="nav-link">Hackathons</a>
+        <a href="contests.html" class="nav-link">Contests</a>
+        <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+        <a href="feedback.html" class="nav-link">Feedback</a>
+      </div>
+
+            <div class="app-nav-right" id="authSection" style="display:flex; align-items:center;">
+        <a href="login.html" style="color:var(--white); text-decoration:none; font-weight:600; font-size:14px; margin-right:16px;">Log in</a>
+        <a href="signup.html" style="background:var(--white); color:var(--black); padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:700; font-size:14px;">Sign up</a>
+      </div>
+    </nav>
+
+    <div class="app-body">
+
+      <aside class="filter-sidebar">
+        <div class="sidebar-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          Filters
+        </div>
+
+        <div class="filter-top">
+          <div class="filter-group">
+            <span class="filter-label">Profile</span>
+            <select class="filter-select" id="filterProfile" onchange="addProfile()">
+              <option value="">Add Profile...</option>
+              <option>Software Development</option>
+              <option>UI/UX Design</option>
+              <option>Marketing</option>
+              <option>Data Science</option>
+              <option>Finance</option>
+              <option>Content Writing</option>
+              <option>Product Management</option>
+            </select>
+            <div class="active-filters" id="activeProfiles" style="margin-top: 8px;"></div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Location</span>
+            <select class="filter-select" id="filterLocation" onchange="addLocation()">
+              <option value="">Add Location...</option>
+              <option>Remote</option>
+              <option>Bangalore</option>
+              <option>Mumbai</option>
+              <option>Delhi</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Chennai</option>
+            </select>
+            <div class="active-filters" id="activeLocations" style="margin-top: 8px;"></div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label" style="display:flex; justify-content:space-between; align-items:center;">
+              Minimum Stipend <span id="stipendLabel" style="color:var(--white);">₹0+</span>
+            </span>
+            <input type="range" id="filterStipend" min="0" max="100000" step="1000" value="0" class="filter-range"
+              oninput="updateStipendLabel()" onchange="applyFilters()">
+          </div>
+
+          <div class="filter-divider"></div>
+          <button class="sort-btn" id="sortBtn" onclick="toggleSort()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M6 12h12M10 18h4" stroke-linecap="round" />
+            </svg>
+            Sort by stipend
+          </button>
+        </div>
+      </aside>
+
+      <main class="int-list">
+        <div id="cardContainer"></div>
+        <div class="no-results" id="noResults">
+          <div class="no-results-title">No results found</div>
+          <div class="no-results-sub">Try adjusting your filters</div>
+        </div>
+
+        <div class="pagination" id="pagination">
+        </div>
+      </main>
+
+      <aside class="bookmarks-panel" id="bookmarksPanel">
+        <div class="sidebar-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Saved Roles
+        </div>
+        <div id="bookmarksContainer"></div>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="media/favicons/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intagg — Feedback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .feedback-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0 40px 160px;
+    }
+    .feedback-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .feedback-text {
+      font-size: 16px;
+      color: var(--mid);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    .feedback-box {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(245, 242, 238, 0.02);
+      border: 1px solid rgba(245, 242, 238, 0.12);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .feedback-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(245, 242, 238, 0.15);
+      border-radius: 8px;
+      padding: 16px;
+      color: var(--white);
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      resize: vertical;
+      min-height: 150px;
+    }
+    .feedback-input:focus {
+      outline: none;
+      border-color: var(--white);
+    }
+    .feedback-btn {
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      padding: 16px 32px;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .feedback-btn:hover {
+      background: var(--off-white);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="app-nav">
+    <a href="index.html" class="app-nav-logo" style="text-decoration: none; color: inherit;">intagg</a>
+
+    <div class="nav-links">
+      <a href="internships.html" class="nav-link">Internships</a>
+      <a href="fellowships.html" class="nav-link">Fellowships</a>
+      <a href="hackathons.html" class="nav-link">Hackathons</a>
+      <a href="contests.html" class="nav-link">Contests</a>
+      <a href="disclaimer.html" class="nav-link">Disclaimer</a>
+        <a href="feedback.html" class="nav-link active">Feedback</a>
+    </div>
+
+          <div class="app-nav-right" id="authSection" style="display:flex; align-items:center;">
+        <a href="login.html" style="color:var(--white); text-decoration:none; font-weight:600; font-size:14px; margin-right:16px;">Log in</a>
+        <a href="signup.html" style="background:var(--white); color:var(--black); padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:700; font-size:14px;">Sign up</a>
+      </div>
+  </nav>
+
+  <div class="feedback-container">
+    <div class="feedback-title">We value your thoughts</div>
+    <div class="feedback-text">Have a suggestion, found a bug, or just want to say hi? Let us know below!</div>
+    
+    <div class="feedback-box">
+      <input type="email" id="feedbackEmail" class="feedback-input" placeholder="Your Email Address" style="min-height: auto;">
+      <textarea id="feedbackMessage" class="feedback-input" placeholder="Type your feedback here..."></textarea>
+      <button class="feedback-btn" onclick="sendFeedback()">Send Feedback</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendFeedback() {
+      const emailEl = document.getElementById('feedbackEmail');
+      const email = emailEl.value;
+      const messageEl = document.getElementById('feedbackMessage');
+      const message = messageEl.value;
+      if (!email.trim() || !message.trim()) {
+        alert("Please provide both email and feedback before sending!");
+        return;
+      }
+      
+      const btn = document.querySelector('.feedback-btn');
+      btn.innerText = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('http://127.0.0.1:5000/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, message: message })
+        });
+        
+        const data = await res.json();
+        if (data.success) {
+          alert('Feedback submitted successfully! Thank you.');
+          messageEl.value = '';
+          emailEl.value = '';
+        } else {
+          alert('Error: ' + (data.error || 'Failed to submit feedback.'));
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Failed to connect to the server.');
+      } finally {
+        btn.innerText = 'Send Feedback';
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+  <script src="auth.js"></script>
+</body>
+
+</html>
