@@ -148,7 +148,7 @@ async function fetchInternships() {
       `;
     }
 
-    const response = await fetch(`http://127.0.0.1:5000/api/internships?${params.toString()}`);
+    const response = await fetch(`https://intagg-backend.onrender.com/api/internships?${params.toString()}`);
     const data = await response.json();
     
     if (data.error) throw new Error(data.error);
