@@ -10,6 +10,7 @@ Intagg is a simple aggregator platform that collects and displays opportunities 
 * Naukri — available
 * Indeed — ongoing
 * AICTE — available
+* Wellfound - ongoing
 * LinkedIn Jobs — planned
 
 ---
